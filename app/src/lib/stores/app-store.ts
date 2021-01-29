@@ -267,8 +267,6 @@ import {
   getShowSideBySideDiff,
   setShowSideBySideDiff,
 } from '../../ui/lib/diff-mode'
-import { trampolineServer } from '../trampoline/trampoline-server'
-import { askpassTrampolineHandler } from '../trampoline/trampoline-askpass-handler'
 
 const LastSelectedRepositoryIDKey = 'last-selected-repository-id'
 
@@ -1629,10 +1627,6 @@ export class AppStore extends TypedBaseStore<IAppState> {
 
   /** Load the initial state for the app. */
   public async loadInitialState() {
-    trampolineServer.registerCommandHandler('ASKPASS', askpassTrampolineHandler)
-
-    // await trampolineServer.run()
-
     const [accounts, repositories] = await Promise.all([
       this.accountsStore.getAll(),
       this.repositoriesStore.getAll(),

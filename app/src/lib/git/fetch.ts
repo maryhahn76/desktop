@@ -5,8 +5,8 @@ import { IFetchProgress } from '../../models/progress'
 import { FetchProgressParser, executionOptionsWithProgress } from '../progress'
 import { enableRecurseSubmodulesFlag } from '../feature-flag'
 import { IRemote } from '../../models/remote'
-import { withTrampolineEnvForRemoteOperation } from './environment'
 import { merge } from '../merge'
+import { withTrampolineEnvForRemoteOperation } from '../trampoline/trampoline-environment'
 
 async function getFetchArgs(
   repository: Repository,
